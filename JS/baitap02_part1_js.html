@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="smass" value="78">
+    <input type="text" id="sheight" value="1.69">
+    <input type="text" id="jmass" value="95">
+    <input type="text" id="jheight" value="1.88">
+    <button id="cal">Calculate</button>
+    <script>
+        var Smass=document.getElementById("smass").value;
+        var Sheight=document.getElementById("sheight").value;
+        var Jmass=document.getElementById("jmass").value;
+        var Jheight=document.getElementById("jheight").value;
+        var SBMI=Smass/Math.pow(Sheight,2)
+        var JBMI=Jmass/Math.pow(Jheight,2)
+        console.log(SBMI);
+        console.log(JBMI);
+        var markHigherBMI=SBMI>JBMI;
+        SBMI=SBMI.toFixed(1);
+        JBMI=JBMI.toFixed(1);
+        var btn=document.getElementById("cal")
+        btn.addEventListener("click",()=>{
+            if(markHigherBMI){
+            console.log("Mark's BMI is higher than John's!");
+            console.log("Mark's BMI ("+SBMI+") is higher than John's! ("+SBMI+")");
+        }
+        else{
+            console.log("John's BMI is higher than Mark's!");          
+            console.log("John's ("+SBMI+") is higher than Mark's BMI! ("+SBMI+")");
+        }   
+        })
+        
+        
+
+    </script>
+</body>
+</html>
