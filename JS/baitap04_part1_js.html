@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Nhập giá trị bill</h1>
+    <input type="text" name="" id="value" />
+    <button id="btn">Tính</button>
+    <h1>Kết quả</h1>
+    <textarea name="" id="text"></textarea>
+    <script>
+      var btn = document.getElementById("btn");
+      btn.onclick = () => {
+        var val = parseFloat(document.getElementById("value").value);
+        var tip;
+        if (val >= 50 && val <= 300) {
+          tip = 0.15;
+        } else {
+          tip = 0.2;
+        }
+        var text = document.getElementById("text");
+        text.value = val * (1 + tip);
+      };
+    </script>
+  </body>
+</html>
