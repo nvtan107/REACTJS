@@ -6,25 +6,34 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Nhập giá trị bill</h1>
-    <input type="text" name="" id="value" />
     <button id="btn">Tính</button>
-    <h1>Kết quả</h1>
-    <textarea name="" id="text"></textarea>
     <script>
       var btn = document.getElementById("btn");
       btn.onclick = () => {
         var val = parseFloat(document.getElementById("value").value);
+        calcTip(val);
+      };
+      function calcTip(val) {
         var tip;
         if (val >= 50 && val <= 300) {
           tip = 0.15;
         } else {
           tip = 0.2;
         }
-        var text = document.getElementById("text");
-        text.value = val * (1 + tip);
-        console.log(val * (1 + tip));
-      };
+        return val * (1 + tip);
+      }
+      var bills = [125, 555, 44];
+      var tips = [];
+      for (let index = 0; index < bills.length; index++) {
+        tips[index] = calcTip(bills[index]);
+      }
+      console.log(bills);
+      console.log(tips);
+      var total = 0;
+      for (let index = 0; index < bills.length; index++) {
+        total += bills[index] + tips[index];
+      }
+      console.log(total);
     </script>
   </body>
 </html>
