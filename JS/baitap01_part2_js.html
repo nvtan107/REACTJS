@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Dolphins team</h1>
+    <input type="text" name="" id="d1" />
+    <input type="text" name="" id="d2" />
+    <input type="text" name="" id="d3" />
+    <h1>Koalas</h1>
+    <input type="text" name="" id="k1" value="55" />
+    <input type="text" name="" id="k2" />
+    <input type="text" name="" id="k3" />
+    <br />
+    <button id="btn">Tính toán</button>
+
+    <script>
+      function tinhToan() {
+        var d1 = parseFloat(document.getElementById("d1").value);
+        var d2 = parseFloat(document.getElementById("d2").value);
+        var d3 = parseFloat(document.getElementById("d3").value);
+        var k1 = parseFloat(document.getElementById("k1").value);
+        var k2 = parseFloat(document.getElementById("k2").value);
+        var k3 = parseFloat(document.getElementById("k3").value);
+
+        if (
+          d1 < 100 ||
+          d2 < 100 ||
+          d3 < 100 ||
+          k1 < 100 ||
+          k2 < 100 ||
+          k3 < 100
+        ) {
+          alert(
+            "⚠️ Lỗi: Vui lòng nhập điểm từ 100 trở lên cho tất cả các lượt đấu!",
+          );
+          return;
+        }
+
+        console.log("Dolphins:", d1, d2, d3);
+        console.log("Koalas:", k1, k2, k3);
+
+        var d = calcAverage(d1, d2, d3);
+        var k = calcAverage(k1, k2, k3);
+
+        var result = checkWinner(d, k);
+        console.log(result);
+      }
+      var btn = document.getElementById("btn");
+      btn.onclick = tinhToan;
+      btn.addEventListener("click", tinhToan);
+
+      function calcAverage(a, b, c) {
+        return ((a + b + c) * 1.0) / 3;
+      }
+      function checkWinner(avgDolphins, avgKoalas) {
+        if (avgDolphins >= 2 * avgKoalas) {
+          return "Dolphins win" + "(" + avgDolphins + " vs " + avgKoalas + ")";
+        } else if (avgKoalas >= 2 * avgDolphins) {
+          return "Koalas win" + "(" + avgKoalas + " vs " + avgDolphins + ")";
+        } else {
+          return "No team win";
+        }
+      }
+    </script>
+  </body>
+</html>
