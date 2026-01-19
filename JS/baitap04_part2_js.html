@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Tính</button>
+    <script>
+      var btn = document.getElementById("btn");
+      btn.onclick = () => {
+        var val = parseFloat(document.getElementById("value").value);
+        calcTip(val);
+      };
+      function calcTip(val) {
+        var tip;
+        if (val >= 50 && val <= 300) {
+          tip = 0.15;
+        } else {
+          tip = 0.2;
+        }
+        return val * (1 + tip);
+      }
+      var bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+      var tips = [];
+      var totals = [];
+      for (let index = 0; index < bills.length; index++) {
+        tips[index] = calcTip(bills[index]);
+        totals[index] = tips[index] + bills[index];
+      }
+      console.log(bills);
+      console.log(tips);
+      console.log(totals);
+
+      var sum = 0;
+      for (let index = 0; index < totals.length; index++) {
+        sum += totals[index];
+      }
+      console.log(sum);
+    </script>
+  </body>
+</html>
