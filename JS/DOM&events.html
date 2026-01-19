@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess My Number!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="right">
+        <p class="message">Start</p>
+        <div class="number">9</div>
+        <p>Score <span class="score">5</span></p>
+
+        <p>Guess</p>
+        <input class="guess"></input>
+      </section>
+      <button class="again">Làm mới</button>
+    </main>
+
+    <script>
+      document.querySelector(".again").addEventListener("click", function () {
+        score = 20;
+        secretNumber = Math.trunc(Math.random() * 20) + 1;
+        document.querySelector(".message").textContent = "Default";
+        document.querySelector(".number").textContent = "0";
+        document.querySelector(".score").textContent = score;
+        document.querySelector(".guess").value = "";
+        document.querySelector("body").style.backgroundColor = "#222";
+        document.querySelector(".number").style.width = "15rem";
+      });
+    </script>
+  </body>
+</html>
