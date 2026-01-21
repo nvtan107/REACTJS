@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" value="19.037" id="latitude" placeholder="Input latitude">
+    <input type="text" name="" value="72.873" id="longitude" placeholder="Input longitude">
+    <button onclick="whereAmI()">Where am I?</button>
+    <script>
+        const countriesContainer = document.querySelector('.countries');
+
+const renderCountry = function (data) {
+  const html = `
+    <article class="country">
+      <img class="country__img" src="${data.flags.png}" />
+      <div class="country__data">
+        <h3 class="country__name">${data.name.common}</h3>
+        <h4 class="country__region">${data.region}</h4>
+        <p class="country__row">
+          👨‍👩‍👧‍👦 ${(data.population / 1_000_000).toFixed(1)} million
+        </p>
+        <p class="country__row">
+          🗣️ ${Object.values(data.languages)[0]}
+        </p>
+        <p class="country__row">
+          💰 ${Object.values(data.currencies)[0].name}
+        </p>
+      </div>
+    </article>
+  `;
+
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+        function whereAmI(){
+            var latitude=document.getElementById("latitude").value;
+            var longitude=document.getElementById("longitude").value;
+            fetch(`https://geocode.xyz/${latitude},${longitude}?geoit=json`)
+            .then(function (response){
+                if(!response.ok){
+                    throw new Error(`Problem with geocoding ${response.status}`);
+                }
+                console.log(response);
+                
+                return response.json();
+            })
+            .then(function(data){
+                console.log(data);
+                if(data.city===undefined || data.country===undefined){
+                    throw new Error(`Qua nhanh! Vui long thu lai`);
+                }
+                console.log(`You are in ${data.city}, ${data.country}`);
+                return
+            })
+            .catch(function(err){
+                console.error(`${err.message}`);
+            });
+            
+        }
+    </script>
+</body>
+</html>
