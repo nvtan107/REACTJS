@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="images"></div>
+    <script>
+      const imgContainer = document.querySelector(".images");
+      function wait(seconds) {
+        return new Promise(function (resolve) {
+          setTimeout(resolve, seconds * 1000);
+        });
+      }
+
+      function createImage(imgPath) {
+        return new Promise(function (resolve, reject) {
+          const img = document.createElement("img");
+          img.src = imgPath;
+          img.addEventListener("load", function () {
+            imgContainer.append(img);
+            resolve(img);
+          });
+          img.addEventListener("error", function () {
+            reject(new Error(`Không thể tải ảnh tại đường dẫn: ${imgPath}`));
+          });
+        });
+      }
+      let currentImg;
+      createImage("./Hinh/bai01_Async.png")
+        .then((img) => {
+          currentImg = img;
+          console.log("da tai anh 1");
+          return wait(2);
+        })
+        .then(() => {
+          currentImg.style.display = "none";
+          return createImage("./Hinh/bai1_part1.png");
+        })
+        .then((img) => {
+          currentImg = img;
+          console.log("da tai anh 2");
+          return wait(2);
+        })
+        .then(() => {
+          currentImg.style.display = "none";
+          console.log("hoan thanh");
+        })
+        .catch((err) => {
+          console.log("Da xay ra loi");
+        });
+    </script>
+  </body>
+</html>

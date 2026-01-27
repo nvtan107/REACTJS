@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="images"></div>
+    <script>
+      const imgContainer = document.querySelector(".images");
+      function wait(seconds) {
+        return new Promise(function (resolve) {
+          setTimeout(resolve, seconds * 1000);
+        });
+      }
+
+      function createImage(imgPath) {
+        return new Promise(function (resolve, reject) {
+          const img = document.createElement("img");
+          img.src = imgPath;
+          img.addEventListener("load", function () {
+            imgContainer.append(img);
+            resolve(img);
+          });
+          img.addEventListener("error", function () {
+            reject(new Error(`Không thể tải ảnh tại đường dẫn: ${imgPath}`));
+          });
+        });
+      }
+      async function loadNPause() {
+        try {
+          let img = await createImage("./Hinh/bai01_Async.png");
+          console.log("da tai anh 1");
+          await wait(2);
+          img.style.display = "none";
+
+          img = await createImage("./Hinh/bai02_Async.png");
+          console.log("da tai anh 2");
+          await wait(2);
+          img.style.display = "none";
+        } catch {
+          console.error("Loi");
+        }
+      }
+      loadNPause();
+    </script>
+  </body>
+</html>
