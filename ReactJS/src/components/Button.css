@@ -1,0 +1,37 @@
+/* src/components/Button.css */
+
+/* Style chung cho tất cả các nút */
+.my-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: 10px; /* Cách nhau ra một chút cho đẹp */
+}
+
+/* Style riêng cho type="primary" */
+.btn-primary {
+  background-color: #0d6efd;
+}
+.btn-primary:hover {
+  background-color: #0b5ed7; /* Hover đậm hơn */
+}
+
+/* Style riêng cho type="danger" */
+.btn-danger {
+  background-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #bb2d3b;
+}
+
+/* Style riêng cho type="success" */
+.btn-success {
+  background-color: #198754;
+}
+.btn-success:hover {
+  background-color: #157347;
+}
