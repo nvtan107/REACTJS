@@ -3,6 +3,7 @@ import Button from "./bai2/Button";
 import React, { useState } from "react";
 import Alert from "./bai3/Alert";
 import LoginForm from "./bai4/LoginForm";
+import ProductList from "./bai5/ProductList";
 import "../App.css";
 
 function Tuan1() {
@@ -30,6 +31,9 @@ function Tuan1() {
       </div>
       <h1>Bai tap 4</h1>
       <LoginForm></LoginForm>
+      <h1>
+        <ProductList></ProductList>
+      </h1>
     </div>
   );
 }
