@@ -1,19 +1,15 @@
-/* src/components/Alert.css */
-
 .alert-box {
   padding: 15px 20px;
   border-radius: 8px;
   margin-top: 20px;
   display: flex;
-  justify-content: space-between; /* Đẩy nội dung và nút X ra 2 bên */
+  justify-content: space-between;
   align-items: center;
   font-weight: bold;
   font-size: 16px;
-  /* Hiệu ứng mượt mà khi xuất hiện */
   transition: all 0.3s ease-in-out;
 }
 
-/* Màu nền và viền theo từng loại (type) */
 .alert-success {
   background-color: #d1e7dd;
   color: #0f5132;
@@ -32,16 +28,15 @@
   border: 1px solid #f5c2c7;
 }
 
-/* Nút đóng (x) */
 .close-btn {
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: inherit; /* Lấy luôn màu chữ của khung chứa nó */
+  color: inherit;
   padding: 0 10px;
 }
 
 .close-btn:hover {
-  opacity: 0.7; /* Làm mờ nhẹ khi di chuột vào nút X */
+  opacity: 0.7;
 }

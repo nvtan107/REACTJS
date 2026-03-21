@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductCard.css";
-import giayImg from "../assets/giay.webp";
+import giayImg from "../../assets/giay.webp";
 function ProductCard() {
   return (
     <div className="card">
