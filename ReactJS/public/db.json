@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "ReactJS cơ bản",
+    "price": 500,
+    "category": "Frontend",
+    "instructor": "Nguyễn Văn A"
+  },
+  {
+    "id": 2,
+    "title": "NodeJS nâng cao",
+    "price": 700,
+    "category": "Backend",
+    "instructor": "Trần Văn B"
+  },
+  {
+    "id": 3,
+    "title": "Python cho Data Science",
+    "price": 800,
+    "category": "Data",
+    "instructor": "Lê Văn C"
+  },
+  {
+    "id": 4,
+    "title": "Big Data",
+    "price": 800,
+    "category": "Data",
+    "instructor": "Trần Hoàng Minh"
+  }
+]
