@@ -9,6 +9,11 @@ import Footer from "./components/Footer";
 import Filter from "./components/Filter";
 import RecipeBox from "./components/RecipeBox";
 import CatalogPage from "./components/CatalogPage";
+import SubscriptionPage from "./components/SubcriptionPage";
+import DashboardPage from "./components/DashboardPage";
+import RecipeHomePage from "./components/RecipeHomePage";
+import CookingGuidePage from "./components/CookingGuidePage";
+
 DiscoverChefify;
 LoginModal;
 Header;
@@ -16,6 +21,9 @@ Footer;
 Filter;
 RecipeBox;
 CatalogPage;
+DashboardPage;
+RecipeHomePage;
+CookingGuidePage;
 function App() {
   const [count, setCount] = useState(0);
 
@@ -27,6 +35,10 @@ function App() {
       <Filter></Filter>
       <RecipeBox></RecipeBox>
       <CatalogPage></CatalogPage>
+      <SubscriptionPage></SubscriptionPage>
+      <DashboardPage></DashboardPage>
+      <RecipeHomePage> </RecipeHomePage>
+      <CookingGuidePage></CookingGuidePage>
       <Footer></Footer>
     </>
   );
